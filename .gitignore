@@ -1,0 +1,14 @@
+# WordPress uploads
+wp-content/uploads/
+
+# env
+.env
+
+# logs
+*.log
+
+# OS
+.DS_Store
+
+#PHPSTORM
+.idea
