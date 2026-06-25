@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
 
     ports:
-      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8080:81"
 
     environment:
       WORDPRESS_DB_HOST: db:3306
