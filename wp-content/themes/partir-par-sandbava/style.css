@@ -1,10 +1,80 @@
 /*
 Theme Name: Partir par SANDBAVA
 Author: Bastien Sandoz
-Description: Un thème WordPress créé en HTML/CSS
+Description: Un thème WordPress pour le site Sylvie Thanadoula
 Version: 1.0
 */
 
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('assets/fonts/DancingScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('assets/fonts/NunitoSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --braun: #623925;
+    --egg: #FCC58F;
+    --violet: #6b00a2;
+    --lavander: #E5C3F6;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Nunito;
+    font-size: 18pt;
+    margin: 0;
+    background-color: var(--violet);
+    background-image: url('assets/images/fleur-de-lys-violet.webp');
+    background-repeat: repeat;
+    background-size: 50px;
+    background-opacity: 0.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Dancing Script";
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    background-color: var(--violet);
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 100%;
+}
+
+main {
+    margin:0px;
+    background-color: var(--egg);
+}
+
+footer {
+    margin:0px;
+    background-color: var(--braun);
+}
+
+header {
+    margin:0px;
+    background-color: var(--lavander);
 }

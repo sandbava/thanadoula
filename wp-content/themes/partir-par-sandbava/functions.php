@@ -4,7 +4,9 @@ function mon_theme_assets() {
 
     wp_enqueue_style(
         'style',
-        get_stylesheet_uri()
+        get_stylesheet_uri(),
+        [],
+        filemtime(get_stylesheet_directory() . '/style.css')
     );
 
 }
@@ -16,10 +18,9 @@ add_action(
 
 function mon_theme_setup(){
 
-    register_nav_menu(
-        'principal',
-        'Menu principal'
-    );
+    register_nav_menus([
+        'principal' => 'Menu principal'
+    ]);
 
 }
 
