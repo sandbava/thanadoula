@@ -18,6 +18,8 @@ add_action(
 
 function mon_theme_setup(){
 
+    add_theme_support( 'post-thumbnails' );
+
     register_nav_menus([
         'principal' => 'Menu principal'
     ]);
