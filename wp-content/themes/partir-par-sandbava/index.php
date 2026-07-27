@@ -13,11 +13,33 @@
                     <h2>Accompagnement de fin de vie.</h2>
                 </div>
             </div>
-            <?php
-            wp_nav_menu([
-                    'theme_location'=>'principal'
-            ]);
-            ?>
+            <div class="navigation-actions">
+                <a class="navigation-contact" href="#contact">Prendre contact</a>
+                <details class="navigation-menu">
+                    <summary aria-label="Ouvrir le menu de navigation">
+                        <span>Menu</span>
+                        <span class="menu-icon" aria-hidden="true"></span>
+                    </summary>
+                    <nav aria-label="Navigation principale">
+                        <ul class="main-menu">
+                            <li class="has-submenu">
+                                <details>
+                                    <summary>Ma pratique</summary>
+                                    <ul class="sub-menu">
+                                        <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
+                                        <li><a href="#cheminement">Mon cheminement</a></li>
+                                        <li><a href="#activite">Mon activité</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="#prestations-et-tarifs">Prestations et tarifs</a></li>
+                            <li><a href="#articles">Articles</a></li>
+                            <li><a href="#evenements">Événements</a></li>
+                            <li><a href="#questions-frequentes">Questions fréquentes</a></li>
+                        </ul>
+                    </nav>
+                </details>
+            </div>
         </div>
         <div id="hero">
             <div class="hero-col" id="value-proposition">
@@ -26,7 +48,11 @@
                     J'accompagne les personnes en fin de vie et leurs proches<br>
                     pour vivre cette transition avec présence, sens et douceur.
                 </h2>
-                <a id="hero-cta" class="btn" href="#">Prendre contact</a>
+                <div id="hero-cta">
+                    <a id="hero-cta-contact" class="btn" href="#">Prendre contact</a>
+                    <a id="hero-cta-discover" class="btn" href="#">Découvrir mon accompagnement</a>
+                </div>
+
             </div>
             <div class="hero-col">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sylvie_portrait.jpg'); ?>"
@@ -36,7 +62,7 @@
     </header>
 
     <main>
-        <section id="book" aria-label="À propos de Sylvie Albouze et de la thanadoula">
+        <section id="book" aria-label="À propos de Sylvie Albouze et du terme thanadoula">
             <div id="left-page" class="page">
                 <h2>A propos</h2>
                 <p>Après 36 ans de pratique infirmière, un traumatisme m'a donné l'opportunité de repenser le "prendre soin" en privilégiant le savoir-être au savoir faire.</p>
