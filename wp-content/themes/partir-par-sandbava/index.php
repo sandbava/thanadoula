@@ -69,7 +69,7 @@
                 <p>Aujourd'hui, j'ai envie de ramener du lien, de la paix entre mourants et vivants, entre soignés et soignants, à la maison comme en établissement d'accueil, que ce lieu si particulier, reste celui ou il fait bon vivre... jusqu'au bout.</p>
             </div>
             <div id="right-page" class="page">
-                <h2>Thanadoula, quesaco ?</h2>
+                <h2>Thanadoula ?</h2>
                 <p>Depuis la Grèce Antique, du 1er cri au dernier soupir, les doulas sont les femmes au service de la vie, celles qui, au sein de la communauté et au coeur de l'humanité la plus vulnérable mais aussi la plus profonde et la plus authentique, accueillent et soutiennent.</p>
                 <p>La "death-doula" apparaît aux Etats-Unis en 2003, le métier s'est développé en Angleterre, Canada, Australie, Mexique, Belgique, Suisse.</p>
             </div>

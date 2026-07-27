@@ -517,7 +517,7 @@ header:before {
      #hero {
          flex-direction: column;
          gap: 25px;
-         padding: 195px 25px 100px;
+         padding: 230px 25px 100px;
      }
 
      #value-proposition {
@@ -558,7 +558,7 @@ header:before {
 
  @media (max-width: 520px) {
      #hero {
-         padding: 175px 15px 115px;
+         padding: 210px 15px 115px;
      }
 
      #title {
