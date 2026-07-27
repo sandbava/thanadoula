@@ -299,19 +299,25 @@ header:before {
 
     .navigation-actions {
         gap: 8px;
-        margin-right: 20px;
+        margin-right: 50px;
     }
 
 }
 
 @media (max-width: 900px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
     #navigation {
         flex-direction: column;
         justify-content: center;
         width: calc(100vw - 20px);
         height: 155px;
-        padding: 10px 15px;
-        border-radius: 45px;
+        padding: 6px 15px 14px;
+        border-radius: 0px;
     }
 
     .brand {
@@ -362,7 +368,7 @@ header:before {
     }
 
     .brand-logo img {
-        width: 48px;
+        width: 58px;
     }
 
     .brand {
@@ -370,12 +376,12 @@ header:before {
     }
 
     .brand-text h1 {
-        font-size: 17pt;
+        font-size: 20pt;
     }
 
     .brand-text h2 {
         margin-top: 0;
-        font-size: 12pt;
+        font-size: 14pt;
     }
 
     .navigation-contact,
@@ -489,6 +495,14 @@ header:before {
  }
 
  @media (max-width: 1300px) and (min-width: 901px) {
+     header {
+         height: auto;
+     }
+
+     #hero {
+         padding-bottom: 120px;
+     }
+
      #subtitle br {
          display: none;
      }
