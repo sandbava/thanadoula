@@ -1072,6 +1072,7 @@ ul {
     }
 
     .navigation-menu > nav {
+        top: 100%;
         right: auto;
         left: 50%;
         width: min(400px, calc(100vw - 20px));
@@ -1125,7 +1126,7 @@ ul {
     }
 
     .navigation-menu > nav {
-        top: calc(100% + 8px);
+        top: 100%;
         max-height: calc(100vh - 105px);
         overflow-y: auto;
     }
