@@ -498,8 +498,8 @@ ul {
     overflow: hidden;
     margin-bottom: 18px;
     border-radius: 18px;
-    background: white;
-    color: var(--brown);
+    background: var(--violet);
+    color: var(--lavander);
     box-shadow: 0 10px 30px rgba(65, 23, 9, .1);
 }
 
@@ -521,7 +521,7 @@ ul {
 .faq-item summary::after {
     content: "+";
     flex: 0 0 auto;
-    color: var(--violet);
+    color: var(--lavander);
     font-size: 24pt;
     font-weight: normal;
     line-height: 1;
@@ -532,10 +532,14 @@ ul {
 }
 
 .faq-item[open] summary {
-    background: var(--egg);
+    background: rgba(107, 0, 162, .1);
 }
 
 .faq-answer {
+    border: 2px solid var(--violet);
+    background-color: var(--lavander);
+    color: var(--violet);
+    border-radius: 0 0 18px 18px;
     padding: 5px 28px 28px;
     font-size: 14pt;
     line-height: 1.6;
