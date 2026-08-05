@@ -30,7 +30,7 @@ if ( $args['compact_top_spacing'] ?? false ) {
 
         <div id="sale-cta">
             <a id="hero-cta-contact" class="btn" href="<?php echo esc_url( get_permalink( get_page_by_path( 'prendre-contact' ) ) ); ?>">Prendre contact</a>
-            <a id="hero-cta-discover" class="btn" href="<?php echo esc_url( get_permalink( get_page_by_path( 'prestation-et-tarifs' ) ) ); ?>">Découvrir mon accompagnement</a>
+            <a id="hero-cta-discover" class="btn" href="<?php echo esc_url( get_permalink( get_page_by_path( 'prestations-et-tarifs' ) ) ); ?>">Découvrir mon accompagnement</a>
         </div>
     </div>
 
