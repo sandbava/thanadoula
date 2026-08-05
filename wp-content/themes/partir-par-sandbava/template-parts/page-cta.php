@@ -1,5 +1,13 @@
-<?php $divider_variant = $args['divider_variant'] ?? 'page'; ?>
-<section class="sale-content section-divider-host">
+<?php
+$divider_variant = $args['divider_variant'] ?? 'page';
+$section_classes  = 'sale-content section-divider-host';
+
+if ( $args['compact_top_spacing'] ?? false ) {
+    $section_classes .= ' sale-content--compact-top';
+}
+?>
+<section class="<?php echo esc_attr( $section_classes ); ?>">
+    <?php if ( $args['show_top_divider'] ?? true ) : ?>
     <div class="sale-top-divider sale-top-divider--<?php echo esc_attr( $divider_variant ); ?>" aria-hidden="true">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <?php if ( 'article' === $divider_variant ) : ?>
@@ -11,6 +19,7 @@
             <?php endif; ?>
         </svg>
     </div>
+    <?php endif; ?>
 
     <div class="sale-content-inner">
         <h2>Vous souhaitez en parler&nbsp;?</h2>

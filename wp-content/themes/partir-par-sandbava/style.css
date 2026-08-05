@@ -475,6 +475,24 @@ ul {
     fill: var(--lavander);
 }
 
+.custom-shape-divider-top-1785922196 {
+    height: 120px;
+    overflow: hidden;
+    background: var(--lavander);
+    line-height: 0;
+    pointer-events: none;
+}
+
+.custom-shape-divider-top-1785922196 svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-shape-divider-top-1785922196 .shape-fill {
+    fill: var(--egg);
+}
+
 .page main.faq-page {
     padding: 260px clamp(20px, 5vw, 70px) 120px;
 }
@@ -672,6 +690,10 @@ ul {
     padding: clamp(210px, 20vw, 250px) clamp(24px, 6vw, 80px) clamp(140px, 14vw, 200px);
     color: var(--brown);
     text-align: center;
+}
+
+.sale-content--compact-top .sale-content-inner {
+    padding-top: clamp(80px, 9vw, 110px);
 }
 
 .sale-content-inner p {
