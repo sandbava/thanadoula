@@ -1394,7 +1394,9 @@ ul {
 .book-page {
     position: relative;
     z-index: 1;
+    display: flex;
     flex: 1 1 50%;
+    flex-direction: column;
     min-width: 0;
     min-height: 750px;
     padding: 130px 85px 115px;
@@ -1412,6 +1414,19 @@ ul {
 .book-page p {
     margin: 0 0 28px;
     line-height: 1.28;
+}
+
+.book-page-link {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 9px;
+    margin: auto auto 0;
+    color: var(--brown);
+}
+
+.book-page-link:hover {
+    color: var(--violet);
 }
 
 #left-page {
@@ -1509,6 +1524,10 @@ ul {
     .book-page p {
         font-size: 14pt;
         line-height: 1.42;
+    }
+
+    .book-page-link {
+        margin: 12px auto 0;
     }
 
     #left-page {
