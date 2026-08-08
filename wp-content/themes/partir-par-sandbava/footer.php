@@ -37,7 +37,7 @@ $articles_query = new WP_Query( $article_query_args );
 
         <footer class="site-footer">
             <div class="footer-inner">
-                <section class="footer-content-section events" aria-labelledby="footer-events-title">
+                <section class="footer-content-section events footer-content-section--count-<?php echo esc_attr( min( 4, $events_query->found_posts ) ); ?>" aria-labelledby="footer-events-title">
                     <div class="footer-section-heading">
                         <p class="footer-eyebrow">À vivre ensemble</p>
                         <div class="footer-heading-row">
@@ -65,7 +65,7 @@ $articles_query = new WP_Query( $article_query_args );
                                 </article>
                             <?php endwhile; ?>
                         </div>
-                        <?php if ( $events_query->found_posts > 3 ) : ?>
+                        <?php if ( $events_query->found_posts > 1 ) : ?>
                             <p class="footer-section-link">
                                 <a class="footer-all-link" href="<?php echo esc_url( $events_page_url ); ?>">Tous les événements <span aria-hidden="true">→</span></a>
                             </p>
@@ -77,7 +77,7 @@ $articles_query = new WP_Query( $article_query_args );
 
                 </section>
 
-                <section class="footer-content-section articles" aria-labelledby="footer-articles-title">
+                <section class="footer-content-section articles footer-content-section--count-<?php echo esc_attr( min( 4, $articles_query->found_posts ) ); ?>" aria-labelledby="footer-articles-title">
                     <div class="footer-section-heading">
                         <p class="footer-eyebrow">À lire et à partager</p>
                         <div class="footer-heading-row">
@@ -105,7 +105,7 @@ $articles_query = new WP_Query( $article_query_args );
                                 </article>
                             <?php endwhile; ?>
                         </div>
-                        <?php if ( $articles_query->found_posts > 3 ) : ?>
+                        <?php if ( $articles_query->found_posts > 1 ) : ?>
                             <p class="footer-section-link">
                                 <a class="footer-all-link" href="<?php echo esc_url( $articles_page_url ); ?>">Tous les articles <span aria-hidden="true">→</span></a>
                             </p>
