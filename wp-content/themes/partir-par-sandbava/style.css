@@ -1748,12 +1748,17 @@ section.credits {
 
 section.credits p {
     margin: 0;
+    color: var(--egg);
     font-size: 11pt;
+    opacity: 1;
+    visibility: visible;
 }
 
 section.credits a {
     color: var(--egg);
     font-size: inherit;
+    opacity: 1;
+    visibility: visible;
 }
 
 @media (max-width: 1050px) {

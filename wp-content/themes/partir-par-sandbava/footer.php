@@ -119,7 +119,7 @@ $articles_query = new WP_Query( $article_query_args );
             </div>
 
             <section class="credits">
-                <p>© <?php echo esc_html( wp_date( 'Y' ) ); ?> Sylvie Albouze · Création <a href="https://www.sandbava.fr">Agence SANDBAVA</a></p>
+                <p>© 2026 Sylvie Albouze · Création <a href="https://www.sandbava.fr">Agence SANDBAVA</a></p>
             </section>
         </footer>
     </div><!-- fin de la div.container.content -->
