@@ -10,7 +10,7 @@
         <div class="container content">
             <header class="site-header">
                 <div id="navigation">
-                    <div class="brand">
+                    <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Retour à l’accueil">
                         <div class="brand-col brand-logo">
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_arbre_tao.png'); ?>"
                                  alt="Logo">
@@ -19,7 +19,7 @@
                             <h1>Sylvie Albouze, Thanadoula.</h1>
                             <h2>Accompagnement de fin de vie.</h2>
                         </div>
-                    </div>
+                    </a>
                     <div class="navigation-actions">
                         <?php $contact_page = get_page_by_path( 'prendre-contact' ); ?>
                         <a
