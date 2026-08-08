@@ -6,6 +6,10 @@
  */
 
 $footer_fallback_image = get_template_directory_uri() . '/assets/images/barque.jpg';
+$events_page           = get_page_by_path( 'evenements' );
+$articles_page         = get_page_by_path( 'articles' );
+$events_page_url       = $events_page ? get_permalink( $events_page ) : home_url( '/evenements/' );
+$articles_page_url     = $articles_page ? get_permalink( $articles_page ) : home_url( '/articles/' );
 
 $event_query_args = [
     'post_type'           => 'post',
@@ -36,11 +40,13 @@ $articles_query = new WP_Query( $article_query_args );
                 <section class="footer-content-section events" aria-labelledby="footer-events-title">
                     <div class="footer-section-heading">
                         <p class="footer-eyebrow">À vivre ensemble</p>
-                        <h2 id="footer-events-title">Les événements</h2>
+                        <div class="footer-heading-row">
+                            <h2 id="footer-events-title">Les événements</h2>
+                        </div>
                     </div>
 
                     <?php if ( $events_query->have_posts() ) : ?>
-                        <div class="footer-card-grid">
+                        <div class="footer-card-grid footer-card-grid--count-<?php echo esc_attr( min( 3, $events_query->post_count ) ); ?>">
                             <?php while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
                                 <article <?php post_class( 'footer-card' ); ?>>
                                     <a class="footer-card-image" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>">
@@ -59,20 +65,28 @@ $articles_query = new WP_Query( $article_query_args );
                                 </article>
                             <?php endwhile; ?>
                         </div>
+                        <?php if ( $events_query->found_posts > 3 ) : ?>
+                            <p class="footer-section-link">
+                                <a class="footer-all-link" href="<?php echo esc_url( $events_page_url ); ?>">Tous les événements <span aria-hidden="true">→</span></a>
+                            </p>
+                        <?php endif; ?>
                     <?php else : ?>
                         <p class="footer-empty-state">Les prochains rendez-vous seront bientôt annoncés.</p>
                     <?php endif; ?>
                     <?php wp_reset_postdata(); ?>
+
                 </section>
 
                 <section class="footer-content-section articles" aria-labelledby="footer-articles-title">
                     <div class="footer-section-heading">
                         <p class="footer-eyebrow">À lire et à partager</p>
-                        <h2 id="footer-articles-title">Derniers articles</h2>
+                        <div class="footer-heading-row">
+                            <h2 id="footer-articles-title">Derniers articles</h2>
+                        </div>
                     </div>
 
                     <?php if ( $articles_query->have_posts() ) : ?>
-                        <div class="footer-card-grid">
+                        <div class="footer-card-grid footer-card-grid--count-<?php echo esc_attr( min( 3, $articles_query->post_count ) ); ?>">
                             <?php while ( $articles_query->have_posts() ) : $articles_query->the_post(); ?>
                                 <article <?php post_class( 'footer-card' ); ?>>
                                     <a class="footer-card-image" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>">
@@ -91,10 +105,16 @@ $articles_query = new WP_Query( $article_query_args );
                                 </article>
                             <?php endwhile; ?>
                         </div>
+                        <?php if ( $articles_query->found_posts > 3 ) : ?>
+                            <p class="footer-section-link">
+                                <a class="footer-all-link" href="<?php echo esc_url( $articles_page_url ); ?>">Tous les articles <span aria-hidden="true">→</span></a>
+                            </p>
+                        <?php endif; ?>
                     <?php else : ?>
                         <p class="footer-empty-state">De nouveaux articles arrivent prochainement.</p>
                     <?php endif; ?>
                     <?php wp_reset_postdata(); ?>
+
                 </section>
             </div>
 

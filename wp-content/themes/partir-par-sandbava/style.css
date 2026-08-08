@@ -713,6 +713,16 @@ ul {
     margin-top: 60px;
 }
 
+.listing-grid--count-1 {
+    grid-template-columns: minmax(0, calc((100% - 56px) / 3));
+    justify-content: center;
+}
+
+.listing-grid--count-2 {
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 56px) / 3)));
+    justify-content: center;
+}
+
 .listing-introduction + .listing-grid {
     margin-top: 0;
 }
@@ -1199,12 +1209,18 @@ ul {
 
      #hero {
          gap: 35px;
-         padding-right: 45px;
-         padding-left: 45px;
+         padding-right: 25px;
+         padding-left: clamp(65px, 6vw, 95px);
      }
 
      #value-proposition {
          flex: 1 1 55%;
+     }
+
+     #hero > .hero-col:last-child {
+         display: flex;
+         flex: 1 1 45%;
+         justify-content: center;
      }
 
      #title {
@@ -1542,6 +1558,29 @@ footer {
     text-align: center;
 }
 
+.footer-heading-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 22px;
+}
+
+.footer-all-link {
+    color: var(--lavander);
+    font-size: 11pt;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.footer-all-link:hover {
+    color: var(--egg);
+}
+
+.footer-section-link {
+    margin: 38px 0 0;
+    text-align: center;
+}
+
 .site-footer h2 {
     font-size: 36pt;
     line-height: 1.1;
@@ -1560,6 +1599,16 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
+}
+
+.footer-card-grid--count-1 {
+    grid-template-columns: minmax(0, calc((100% - 56px) / 3));
+    justify-content: center;
+}
+
+.footer-card-grid--count-2 {
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 56px) / 3)));
+    justify-content: center;
 }
 
 .footer-card {
@@ -1712,8 +1761,16 @@ section.credits a {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .footer-card-grid--count-1 {
+        grid-template-columns: minmax(0, calc((100% - 28px) / 2));
+    }
+
     .listing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .listing-grid--count-1 {
+        grid-template-columns: minmax(0, calc((100% - 28px) / 2));
     }
 }
 
@@ -1728,6 +1785,12 @@ section.credits a {
 
     .site-footer h2 {
         font-size: 30pt;
+    }
+
+    .footer-heading-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     .footer-card-grid {

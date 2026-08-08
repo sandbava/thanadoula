@@ -30,7 +30,7 @@ $events_query = new WP_Query( $query_args );
         <?php endif; ?>
 
         <?php if ( $events_query->have_posts() ) : ?>
-            <div class="listing-grid">
+            <div class="listing-grid listing-grid--count-<?php echo esc_attr( min( 3, $events_query->post_count ) ); ?>">
                 <?php while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
                     <?php get_template_part( 'template-parts/listing-card', null, [ 'link_label' => 'Découvrir', 'is_event' => true ] ); ?>
                 <?php endwhile; ?>

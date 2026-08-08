@@ -27,7 +27,7 @@ $articles_query = new WP_Query( $query_args );
         <?php endif; ?>
 
         <?php if ( $articles_query->have_posts() ) : ?>
-            <div class="listing-grid">
+            <div class="listing-grid listing-grid--count-<?php echo esc_attr( min( 3, $articles_query->post_count ) ); ?>">
                 <?php while ( $articles_query->have_posts() ) : $articles_query->the_post(); ?>
                     <?php get_template_part( 'template-parts/listing-card', null, [ 'link_label' => 'Lire l’article' ] ); ?>
                 <?php endwhile; ?>
