@@ -8,10 +8,11 @@ get_header();
 ?>
         <div id="hero">
             <div class="hero-col" id="value-proposition">
-                <h1 id="title">Honorer la vie jusqu'à son dernier souffle.</h1>
+                <h1 id="title">Vivre ensemble jusqu'à la fin, <br>la dimension sacrée de l'existence <br>en remettant la mort au coeur de la Vie.</h1>
                 <h2 id="subtitle">
-                    J'accompagne les personnes en fin de vie et leurs proches<br>
-                    pour vivre cette transition avec présence, sens et douceur.
+                    Je vous accompagne dans tout le temps nécessaire <br>
+                    pour celui des adieux, celui de la séparation, <br>
+                    celui de rendre hommage et celui de vivre la disparition de l'être aimé.
                 </h2>
                 <div id="hero-cta">
                     <a id="hero-cta-contact" class="btn" href="<?php echo esc_url(
