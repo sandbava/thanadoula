@@ -22,10 +22,9 @@ if ( $args['compact_top_spacing'] ?? false ) {
     <?php endif; ?>
 
     <div class="sale-content-inner">
-        <h2>Vous souhaitez en parler&nbsp;?</h2>
+        <h2>Je reste à votre écoute,</h2>
         <p>
-            Je vous propose un premier échange confidentiel et sans engagement
-            pour écouter votre situation et répondre à vos questions.
+            pour un premier contact, libre et confidentiel. <br> Merci à vous.
         </p>
 
         <div id="sale-cta">

@@ -52,19 +52,53 @@ function thanadoula_format_event_time( $time ) {
 }
 
 function thanadoula_get_event_details( $post_id = null ) {
-    $post_id    = $post_id ?: get_the_ID();
-    $date_value = (string) get_post_meta( $post_id, 'event_date', true );
-    $date       = DateTimeImmutable::createFromFormat( '!Ymd', $date_value );
+    $post_id     = $post_id ?: get_the_ID();
+    $exact_value = (string) get_post_meta( $post_id, 'event_date', true );
+    $month_value = (string) get_post_meta( $post_id, 'event_month_year', true );
+    $is_month    = '' === $exact_value && '' !== $month_value;
+    $date_value  = $is_month ? $month_value : $exact_value;
+    $date        = DateTimeImmutable::createFromFormat( '!Ymd', $date_value, wp_timezone() );
+
+    if ( $date && $date->format( 'Ymd' ) !== $date_value ) {
+        $date = false;
+    }
 
     return [
-        'date'             => $date ? wp_date( 'l j F Y', $date->getTimestamp() ) : '',
-        'datetime'         => $date ? $date->format( 'Y-m-d' ) : '',
+        'date'             => $date ? wp_date( $is_month ? 'F Y' : 'l j F Y', $date->getTimestamp() ) : '',
+        'datetime'         => $date ? $date->format( $is_month ? 'Y-m' : 'Y-m-d' ) : '',
+        'is_month'         => $is_month,
         'start_time'       => thanadoula_format_event_time( get_post_meta( $post_id, 'event_start_time', true ) ),
         'end_time'         => thanadoula_format_event_time( get_post_meta( $post_id, 'event_end_time', true ) ),
         'location'         => (string) get_post_meta( $post_id, 'event_location', true ),
         'registration_url' => (string) get_post_meta( $post_id, 'event_registration_url', true ),
     ];
 }
+
+function thanadoula_order_events_by_date( $orderby, $query ) {
+    if ( 'thanadoula_event_date' !== $query->get( 'orderby' ) ) {
+        return $orderby;
+    }
+
+    global $wpdb;
+
+    // ACF stocke les deux dates en Ymd. Un mois est classé à son premier jour.
+    // Les sous-requêtes évitent de dupliquer les articles et préservent la pagination.
+    return "COALESCE(
+        (SELECT exact_date.meta_value
+         FROM {$wpdb->postmeta} AS exact_date
+         WHERE exact_date.post_id = {$wpdb->posts}.ID
+           AND exact_date.meta_key = 'event_date' AND exact_date.meta_value <> ''
+         ORDER BY exact_date.meta_id ASC LIMIT 1),
+        (SELECT CONCAT(LEFT(month_date.meta_value, 6), '01')
+         FROM {$wpdb->postmeta} AS month_date
+         WHERE month_date.post_id = {$wpdb->posts}.ID
+           AND month_date.meta_key = 'event_month_year' AND month_date.meta_value <> ''
+         ORDER BY month_date.meta_id ASC LIMIT 1),
+        '99999999'
+    ) ASC, {$wpdb->posts}.ID ASC";
+}
+
+add_filter( 'posts_orderby', 'thanadoula_order_events_by_date', 10, 2 );
 
 function thanadoula_contact_redirect( $status, $page_id ) {
     $redirect_url = $page_id ? get_permalink( $page_id ) : home_url( '/prendre-contact/' );

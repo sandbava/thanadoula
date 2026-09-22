@@ -5,7 +5,7 @@ $show_registration = $args['show_registration'] ?? false;
 <div class="event-details">
     <?php if ( $event_details['date'] ) : ?>
         <p class="event-detail event-date">
-            <span>Date de l’événement&nbsp;:</span>
+            <span><?php echo $event_details['is_month'] ? 'Période' : 'Date de l’événement'; ?>&nbsp;:</span>
             <time datetime="<?php echo esc_attr( $event_details['datetime'] ); ?>"><?php echo esc_html( $event_details['date'] ); ?></time>
         </p>
     <?php endif; ?>
