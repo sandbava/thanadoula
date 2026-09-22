@@ -19,9 +19,40 @@ $event_query_args = [
     'posts_per_page'      => 3,
     'post_status'         => 'publish',
     'ignore_sticky_posts' => true,
+    'meta_query'          => [
+        'relation' => 'OR',
+        [
+            'key'     => 'event_date',
+            'value'   => current_time( 'Ymd' ),
+            'compare' => '>=',
+            'type'    => 'NUMERIC',
+        ],
+        [
+            'relation' => 'AND',
+            [
+                'relation' => 'OR',
+                [ 'key' => 'event_date', 'compare' => 'NOT EXISTS' ],
+                [ 'key' => 'event_date', 'value' => '', 'compare' => '=' ],
+            ],
+            [
+                'key'     => 'event_month_year',
+                'value'   => current_time( 'Ym' ) . '01',
+                'compare' => '>=',
+                'type'    => 'NUMERIC',
+            ],
+        ],
+    ],
 ];
 
 $events_query = new WP_Query( $event_query_args );
+
+// Sans événement à venir, présenter les derniers événements publiés.
+if ( ! $events_query->have_posts() ) {
+    unset( $event_query_args['meta_query'] );
+    $event_query_args['orderby'] = [ 'date' => 'DESC', 'ID' => 'DESC' ];
+    $event_query_args['order']   = 'DESC';
+    $events_query = new WP_Query( $event_query_args );
+}
 
 $article_query_args = [
     'post_type'           => 'post',
