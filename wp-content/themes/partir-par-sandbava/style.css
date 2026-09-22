@@ -317,7 +317,7 @@ ul {
 .standard-page-content {
     max-width: 900px;
     margin: 45px auto 0;
-    text-align: center;
+    text-align: start;
 }
 
 .page main.contact-page {
@@ -332,6 +332,7 @@ ul {
 
 .contact-page-introduction {
     margin-top: 35px;
+    text-align: start;
 }
 
 .contact-form-card {
@@ -507,6 +508,7 @@ ul {
 
 .faq-page-introduction {
     margin-top: 35px;
+    text-align: start;
 }
 
 .faq-list {
