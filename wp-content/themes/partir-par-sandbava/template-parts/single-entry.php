@@ -1,6 +1,8 @@
 <?php
 $is_event = ( $args['entry_type'] ?? 'article' ) === 'event';
 $label    = $is_event ? 'Événement' : 'Article';
+$opposite_category = get_category_by_slug( $is_event ? 'mes-articles' : 'mes-evenements' );
+$excluded_categories = $opposite_category ? [ $opposite_category->term_id ] : [];
 ?>
 <main class="single-entry-page">
     <article <?php post_class( 'single-entry' ); ?>>
@@ -36,8 +38,8 @@ $label    = $is_event ? 'Événement' : 'Article';
         ?>
 
         <nav class="single-entry-navigation" aria-label="Navigation entre les publications">
-            <div class="single-entry-previous"><?php previous_post_link( '%link', '← %title' ); ?></div>
-            <div class="single-entry-next"><?php next_post_link( '%link', '%title →' ); ?></div>
+            <div class="single-entry-previous"><?php previous_post_link( '%link', '← %title', true, $excluded_categories, 'category' ); ?></div>
+            <div class="single-entry-next"><?php next_post_link( '%link', '%title →', true, $excluded_categories, 'category' ); ?></div>
         </nav>
     </article>
 </main>
