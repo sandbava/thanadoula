@@ -1613,7 +1613,8 @@ footer {
     text-align: center;
 }
 
-.footer-content-section--count-4 .footer-section-link {
+.footer-content-section--count-4 .footer-section-link,
+.footer-section-link--more-events {
     display: block;
 }
 

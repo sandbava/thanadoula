@@ -54,6 +54,17 @@ if ( ! $events_query->have_posts() ) {
     $events_query = new WP_Query( $event_query_args );
 }
 
+// Compter aussi les événements passés disponibles sur la page des événements.
+$all_events_query = new WP_Query( [
+    'post_type'           => 'post',
+    'category_name'       => 'mes-evenements',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 1,
+    'fields'             => 'ids',
+    'ignore_sticky_posts' => true,
+] );
+$has_more_events = $all_events_query->found_posts > $events_query->post_count;
+
 $article_query_args = [
     'post_type'           => 'post',
     'category_name'       => 'mes-articles',
@@ -95,8 +106,8 @@ $articles_query = new WP_Query( $article_query_args );
                                 </article>
                             <?php endwhile; ?>
                         </div>
-                        <?php if ( $events_query->found_posts > 1 ) : ?>
-                            <p class="footer-section-link">
+                        <?php if ( $has_more_events || $events_query->post_count > 1 ) : ?>
+                            <p class="footer-section-link<?php echo $has_more_events ? ' footer-section-link--more-events' : ''; ?>">
                                 <a class="footer-all-link" href="<?php echo esc_url( $events_page_url ); ?>">Tous les événements <span aria-hidden="true">→</span></a>
                             </p>
                         <?php endif; ?>
